@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">STC tickets</string>
+    <string name="logo">App Logo</string>
+    <string name="create_an_account">Create Account</string>
+    <string name="email">Email</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="role">Role</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="user_image">User Image</string>
+    <string name="john">Username</string>
+    <string name="last_name">Username</string>
+    <string name="gender">Gender</string>
+    <string name="contact">Contact</string>
+    <string name="_054_665_1113">0XX XXX XXXX</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="home">Home</string>
+    <string name="bookings">Bookings</string>
+    <string name="help">Help</string>
+    <string name="profile">Profile</string>
+    <string name="wallet">Wallet</string>
+</resources>

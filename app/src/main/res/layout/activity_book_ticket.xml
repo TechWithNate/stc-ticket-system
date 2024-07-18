@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.BookTicket">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:contentDescription="Arrow Back"
+            android:src="@drawable/baseline_arrow_back"
+            android:id="@+id/back_btn"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:text="Book A Ticket"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topAppBar">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book your next trip"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/welcome_txt"/>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="20dp"
+            android:elevation="10dp"
+            app:strokeWidth="0dp"
+            android:layout_marginBottom="40dp"
+            app:cardBackgroundColor="#3E3E3E"
+            android:layout_below="@+id/welcome_txt"
+            android:layout_marginTop="30dp">
+
+            <RelativeLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Passenger Name"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/passenger_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/baseline_account_circle_24"
+                android:drawablePadding="10dp"
+                android:background="@drawable/txt_bg"
+                android:hint="Name"
+                android:textColor="@color/black"
+                android:textColorHint="#9F9F9F" />
+
+
+            <TextView
+                android:id="@+id/tv_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/passenger_name"
+                android:text="From"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/from_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_from"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/baseline_location"
+                android:drawablePadding="10dp"
+                android:background="@drawable/txt_bg"
+                android:hint="Accra"
+                android:textColor="@color/black"
+                android:textColorHint="#9F9F9F" />
+
+
+            <TextView
+                android:id="@+id/tv_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/from_location"
+                android:text="To"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/to_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_to"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/baseline_location"
+                android:drawablePadding="10dp"
+                android:background="@drawable/txt_bg"
+                android:hint="Kumasi"
+                android:textColor="@color/black"
+                android:textColorHint="#9F9F9F" />
+
+
+            <TextView
+                android:id="@+id/tv_datime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/to_location"
+                android:layout_marginTop="20dp"
+                android:text="Day Time"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/daytime_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_datime"
+                android:layout_marginTop="7dp"
+                android:textColorHint="#757575">
+
+                <AutoCompleteTextView
+                    android:id="@+id/daytime"
+                    style="@style/CustomAutoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:drawableStart="@drawable/baseline_day_or_night"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/daytime_layout"
+                android:layout_marginTop="20dp"
+                android:text="Date"
+                android:textSize="15sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_layout"
+                app:strokeWidth="1dp"
+                android:textColor="@color/white"
+                android:layout_below="@+id/tv_date"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="7dp"
+                android:elevation="5dp"
+                app:strokeColor="@color/black"
+                app:cardBackgroundColor="@color/white">
+
+                <RelativeLayout
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/baseline_calendar"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/calendar_img"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Apr 24, 2022"
+                            android:layout_toEndOf="@+id/calendar_img"
+                            android:layout_marginStart="10dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black"
+                            android:id="@+id/tvDate"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thur"
+                            android:layout_toStartOf="@+id/arrow_down"
+                            android:layout_marginEnd="10dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/black"
+                            android:id="@+id/tvDay"/>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/baseline_keyboard_arrow_down"
+                        android:layout_marginEnd="10dp"
+                        android:id="@+id/arrow_down"/>
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_layout"
+                app:backgroundTint="@color/primary_black"
+                android:text="Book Ticket"
+                app:cornerRadius="10dp"
+                android:textColor="@color/white"
+                android:id="@+id/book"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/progress_bar"
+                android:visibility="gone"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

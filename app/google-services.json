@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "979583663708",
+    "firebase_url": "https://coffee-shop-sbduac.firebaseio.com",
+    "project_id": "coffee-shop-sbduac",
+    "storage_bucket": "coffee-shop-sbduac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979583663708:android:1ef897477503f14282b099",
+        "android_client_info": {
+          "package_name": "com.nate.stctickets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7o6RS3QKsECJXolRJkD-PIjcTOQpNQ-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979583663708:android:10d56f3ee4a3fabb82b099",
+        "android_client_info": {
+          "package_name": "com.tech.audioscreenrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979583663708-00dksbnoc1vrj1nkt1a5s6jd14ta38cl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tech.audioscreenrecorder",
+            "certificate_hash": "b62c2cba3603f0053010ddcb06ffb0bec4437503"
+          }
+        },
+        {
+          "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7o6RS3QKsECJXolRJkD-PIjcTOQpNQ-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979583663708:android:c370469f42f751c782b099",
+        "android_client_info": {
+          "package_name": "com.tech.with.nate.screenrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979583663708-ih2c7mdpim3bcg64in4spr2i2esecot0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tech.with.nate.screenrecorder",
+            "certificate_hash": "b62c2cba3603f0053010ddcb06ffb0bec4437503"
+          }
+        },
+        {
+          "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7o6RS3QKsECJXolRJkD-PIjcTOQpNQ-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979583663708-3km0inhauqddmtunjtdpm5v57vrhujf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

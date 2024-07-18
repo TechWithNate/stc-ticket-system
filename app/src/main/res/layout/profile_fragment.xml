@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="60dp"
+            app:strokeWidth="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="@color/white"
+            android:id="@+id/profile_img_card">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="User Image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+                    android:id="@+id/profile_img"/>
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:layout_marginStart="20dp"
+            android:textSize="15sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/profile_img_card"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/txt_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Username"
+            android:layout_below="@+id/tv_name"
+            android:textColorHint="#9F9F9F"
+            android:id="@+id/username"/>
+
+        <TextView
+            android:id="@+id/tv_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact"
+            android:layout_marginStart="20dp"
+            android:textSize="15sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/username"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/txt_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="0XX XXX XXXX"
+            android:layout_below="@+id/tv_tel"
+            android:textColorHint="#9F9F9F"
+            android:id="@+id/contact"/>
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_marginStart="20dp"
+            android:textSize="15sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/contact"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/txt_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Gender"
+            android:layout_below="@+id/tv_gender"
+            android:textColorHint="#9F9F9F"
+            android:id="@+id/gender"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/edit_profile_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            app:rippleColor="#909090"
+            android:layout_marginEnd="20dp"
+            android:text="Edit Profile"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_black"
+            app:cornerRadius="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_profile_btn"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Logout"
+            android:textColor="@color/black"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/primary_black"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp" />
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

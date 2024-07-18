@@ -2,9 +2,11 @@ package com.nate.stctickets.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class SignUp extends AppCompatActivity {
     private MaterialButton createAccount;
     private TextView login;
 
+    private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
 
@@ -67,6 +70,7 @@ public class SignUp extends AppCompatActivity {
         confirmPassword = findViewById(R.id.c_password);
         createAccount = findViewById(R.id.create_btn);
         login = findViewById(R.id.login_btn);
+        progressBar = findViewById(R.id.progress_bar);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -88,13 +92,17 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void createUser(String email, String password) {
+        progressBar.setVisibility(View.VISIBLE);
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
+                progressBar.setVisibility(View.GONE);
                 createProfile();
             }else {
                 Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         }).addOnFailureListener(e -> {
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         });
     }
@@ -104,7 +112,10 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void createProfile(){
-        startActivity(new Intent(SignUp.this, CreateProfile.class));
+        Intent intent = new Intent(SignUp.this, CreateProfile.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
 

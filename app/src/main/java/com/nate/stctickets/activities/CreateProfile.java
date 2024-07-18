@@ -88,7 +88,7 @@ public class CreateProfile extends AppCompatActivity {
 
 
     private void initViews(){
-        userImage = findViewById(R.id.profile_img);
+        userImage = findViewById(R.id.user_img);
         username = findViewById(R.id.username);
         genderAutoComplete = findViewById(R.id.gender);
         contact = findViewById(R.id.tel);
@@ -109,8 +109,6 @@ public class CreateProfile extends AppCompatActivity {
             Toast.makeText(this, "Enter Contact", Toast.LENGTH_SHORT).show();
         }else if (gender == null){
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
-        }else if (imageUriAccessToken == null){
-            Toast.makeText(this, "Upload Image", Toast.LENGTH_SHORT).show();
         }else if (contact.getText().toString().length() < 10){
             Toast.makeText(this, "Invalid Contact Number", Toast.LENGTH_SHORT).show();
         }else {
@@ -143,7 +141,7 @@ public class CreateProfile extends AppCompatActivity {
     }
 
     private void sendUserData(Map<String, Object> userMap) {
-        databaseReference.child("users").child(firebaseUser.getUid()).setValue(userMap).addOnCompleteListener(task -> {
+        databaseReference.child("users").child(firebaseAuth.getUid()).setValue(userMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(CreateProfile.this, "Profile Created", Toast.LENGTH_SHORT).show();

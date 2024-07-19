@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nate.stctickets.R;
 import com.nate.stctickets.models.BookingModel;
+import com.nate.stctickets.models.TimeGenerator;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
@@ -44,6 +45,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Random;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -145,9 +147,24 @@ public class BookTicket extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
+        // Generate a random ticket cost
+        Random random = new Random();
+        int ticketCost = 50 + random.nextInt(151);
+
+        // Generate time
+        // Generate a random time based on the user's daytime string
+        //String dayt = "morning"; // Replace with actual value from user input
+        Calendar randomTime = TimeGenerator.generateRandomTime(dayt);
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        String formattedTime = timeFormat.format(randomTime.getTime());
+
+        // Generate a random seat number
+        String seatNumber = generateRandomSeatNumber();
+
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
         String ticketID = databaseReference.push().getKey();
-        BookingModel model = new BookingModel(ticketID, firebaseAuth.getUid(), etPassengerName.getText().toString(), etFromLocation.getText().toString(), etToLocation.getText().toString(), dayt, tvDate.getText().toString(), tvDay.getText().toString(), null, "A20");
+        BookingModel model = new BookingModel(ticketID, firebaseAuth.getUid(), etPassengerName.getText().toString(), etFromLocation.getText().toString(), etToLocation.getText().toString(), dayt, tvDate.getText().toString(), tvDay.getText().toString(), null, seatNumber, formattedTime, String.valueOf(ticketCost));
 
         // Generate the QR code
         String ticketData = model.toString();
@@ -245,6 +262,19 @@ public class BookTicket extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] byteArray = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    public static String generateRandomSeatNumber() {
+        Random random = new Random();
+
+        // Generate a random uppercase letter (A-Z)
+        char letter = (char) ('A' + random.nextInt(26));
+
+        // Generate a random two-digit number (00-99)
+        int number = random.nextInt(100);
+
+        // Format the seat number as a string
+        return String.format("%c%02d", letter, number);
     }
 
 }

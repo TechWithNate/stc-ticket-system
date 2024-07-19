@@ -91,6 +91,39 @@
 
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_below="@+id/div1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dep. Time"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dep_txt"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5:00"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/departure_time"
+            android:textColor="@color/black"
+            android:layout_below="@+id/dep_txt"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"/>
+
+    </RelativeLayout>
+
+
     <RelativeLayout
         android:id="@+id/to_layout"
         android:layout_width="wrap_content"
@@ -187,9 +220,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="110012312312"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:layout_centerHorizontal="true"
             android:id="@+id/ticket_number"
+            android:layout_marginEnd="40dp"
             android:textColor="@color/black"
             android:layout_below="@+id/ticket_no_txt"
             android:textStyle="bold"

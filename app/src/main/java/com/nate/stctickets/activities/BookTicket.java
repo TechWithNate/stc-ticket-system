@@ -29,6 +29,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,6 +72,7 @@ public class BookTicket extends AppCompatActivity {
     private MaterialCardView dateLayout;
     private Bitmap bitmap;
     private QRGEncoder qrgEncoder;
+    private MaterialToolbar toolbar;
 
 
 
@@ -102,6 +104,7 @@ public class BookTicket extends AppCompatActivity {
         dateLayout.setOnClickListener(v -> showDatePickerDialog(tvDate, tvDay, year, month, day));
 
 
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         bookBtn.setOnClickListener(v -> checkFields());
 
@@ -118,6 +121,7 @@ public class BookTicket extends AppCompatActivity {
         bookBtn = findViewById(R.id.book);
         progressBar = findViewById(R.id.progress_bar);
         dateLayout = findViewById(R.id.date_layout);
+        toolbar = findViewById(R.id.topAppBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

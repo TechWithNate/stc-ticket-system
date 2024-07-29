@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +35,7 @@ public class BookingsFragment extends Fragment implements BookingAdapter.TicketC
     private FirebaseAuth firebaseAuth;
     private ArrayList<BookingModel> bookingModels;
     private BookingAdapter adapter;
+    private MaterialToolbar toolbar;
 
     @Nullable
     @Override
@@ -41,9 +43,12 @@ public class BookingsFragment extends Fragment implements BookingAdapter.TicketC
         view = inflater.inflate(R.layout.bookings_fragment, container, false);
         firebaseAuth = FirebaseAuth.getInstance();
         recyclerView = view.findViewById(R.id.ticket_recycler);
+        toolbar = view.findViewById(R.id.topAppBar);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         bookingModels = new ArrayList<>();
+
+        toolbar.setNavigationOnClickListener(v -> getActivity().finish());
 
 
         fetchBookingModel();

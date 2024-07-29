@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public class WalletFragment extends Fragment {
     private View view;
     private TextView balance;
     private MaterialButton addBalance;
+    private ImageView backBtn;
 
     @Nullable
     @Override
@@ -29,6 +31,7 @@ public class WalletFragment extends Fragment {
         initViews();
 
         addBalance.setOnClickListener(v -> navigateBalance());
+        backBtn.setOnClickListener(v -> getActivity().finish());
 
         return view;
     }
@@ -36,6 +39,7 @@ public class WalletFragment extends Fragment {
     private void initViews() {
         balance = view.findViewById(R.id.balance);
         addBalance = view.findViewById(R.id.add_balance);
+        backBtn = view.findViewById(R.id.back_btn);
     }
 
     private void navigateBalance(){

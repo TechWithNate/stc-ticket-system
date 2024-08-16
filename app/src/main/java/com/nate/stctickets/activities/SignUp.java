@@ -118,5 +118,14 @@ public class SignUp extends AppCompatActivity {
         finish();
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (firebaseAuth.getCurrentUser() != null){
+            Intent intent = new Intent(SignUp.this, Home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+    }
 }

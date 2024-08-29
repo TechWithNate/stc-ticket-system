@@ -136,6 +136,7 @@ public class CreateProfile extends AppCompatActivity {
         userMap.put("username", username.getText().toString());
         userMap.put("gender", genderAutoComplete.getText().toString());
         userMap.put("contact", contact.getText().toString());
+        userMap.put("balance", 0.00);
         userMap.put("image", imageUriAccessToken);
         sendUserData(userMap);
     }

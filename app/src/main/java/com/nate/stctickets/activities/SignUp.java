@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.nate.stctickets.R;
 
-public cSignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     private EditText email;
     private AutoCompleteTextView roleAutoComplete;

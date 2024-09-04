@@ -93,7 +93,7 @@ public class BookTicket extends AppCompatActivity {
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        String[] daytimeOption = {"Morning", "Afternoon", "Night"};
+        String[] daytimeOption = {"Morning", "Afternoon", "Evening"};
         ArrayAdapter<String> daytimeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, daytimeOption);
         dayTime.setAdapter(daytimeAdapter);
         dayTime.setOnItemClickListener((parent, view, position, id) -> {
@@ -193,7 +193,8 @@ public class BookTicket extends AppCompatActivity {
         dimen = dimen * 3 / 4;
 
         //int smallerDimension = Math.min(imageView.getWidth(), imageView.getHeight());
-        QRGEncoder qrgEncoder = new QRGEncoder(ticketData, null, QRGContents.Type.TEXT, dimen);
+        //QRGEncoder qrgEncoder = new QRGEncoder(ticketData, null, QRGContents.Type.TEXT, dimen);
+        QRGEncoder qrgEncoder = new QRGEncoder(ticketData, null, QRGContents.Type.TEXT, 500*10);
         try {
             Bitmap bitmap = qrgEncoder.getBitmap();
             String qrCodeBase64 = encodeBitmapToBase64(bitmap);

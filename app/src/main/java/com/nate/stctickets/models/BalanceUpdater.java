@@ -1,5 +1,6 @@
 package com.nate.stctickets.models;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -26,13 +27,15 @@ public class BalanceUpdater {
     private DatabaseReference databaseReference;
     private Context context;
     private ProgressBar progressBar;
+    private Activity activity;
 
 
-    public BalanceUpdater(Context context, ProgressBar progressBar) {
+    public BalanceUpdater(Context context, ProgressBar progressBar, Activity activity) {
         this.context = context;
         this.progressBar = progressBar;
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseAuth.getUid()).child("balance");
+        this.activity = activity;
     }
 
     public void addAmount(double amountToAdd) {
@@ -52,16 +55,18 @@ public class BalanceUpdater {
                             // Update successful
                             //TODO: navigate to wallet page which is a fragment
 
-                            if (context instanceof FragmentActivity) {
-                                FragmentActivity fragmentActivity = (FragmentActivity) context;
-                                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            activity.finish();
 
-                                WalletFragment walletFragment = new WalletFragment();
-                                fragmentTransaction.replace(R.id.frame_layout, walletFragment); // Assuming you have a FrameLayout with this ID in your activity layout
-                                fragmentTransaction.addToBackStack(null); // Optional: add to back stack if you want to allow users to navigate back
-                                fragmentTransaction.commit();
-                            }
+//                            if (context instanceof FragmentActivity) {
+//                                FragmentActivity fragmentActivity = (FragmentActivity) context;
+//                                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+//                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                                WalletFragment walletFragment = new WalletFragment();
+//                                fragmentTransaction.replace(R.id.frame_layout, walletFragment); // Assuming you have a FrameLayout with this ID in your activity layout
+//                                fragmentTransaction.addToBackStack(null); // Optional: add to back stack if you want to allow users to navigate back
+//                                fragmentTransaction.commit();
+//                            }
 
                             Toast.makeText(context, "Balance updated successfully", Toast.LENGTH_SHORT).show();
                             System.out.println("Balance updated successfully.");

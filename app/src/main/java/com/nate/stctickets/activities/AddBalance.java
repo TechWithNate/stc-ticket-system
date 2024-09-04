@@ -1,5 +1,7 @@
 package com.nate.stctickets.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -97,7 +99,7 @@ public class AddBalance extends AppCompatActivity {
         payBtn = findViewById(R.id.add_balance);
         progressBar = findViewById(R.id.progress_bar);
 
-        balanceUpdater = new BalanceUpdater(this, progressBar);
+        balanceUpdater = new BalanceUpdater(this, progressBar, this);
     }
 
     private void checkFields() throws IOException {
@@ -108,7 +110,9 @@ public class AddBalance extends AppCompatActivity {
         } else {
             //balanceUpdater.addAmount(Double.parseDouble(amount.getText().toString()));
 //            makePayment();
-            returnID();
+           // returnID();
+            startPaymentProcess(contact.getText().toString(), amount.getText().toString());
+
         }
     }
 
@@ -215,5 +219,57 @@ public class AddBalance extends AppCompatActivity {
         Toast.makeText(this, "Payment " + message, Toast.LENGTH_SHORT).show();
     }
 
+    private void startPaymentProcess(String contact, String amount) {
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{ \"email\": \"dzrekenathan2002@gmail.com\", \"amount\": \"500000\" }");
+        Request request = new Request.Builder()
+                .url("https://api.paystack.co/transaction/initialize")
+                .method("POST", body)
+                .addHeader("Authorization", "Bearer sk_test_1fa583b4575700d23a2c086fed3aabba1f815b9b")
+                .addHeader("Content-Type", "application/json")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(AddBalance.this, "Failed to initiate payment", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonResponse = new JSONObject(responseBody);
+                        JSONObject data = jsonResponse.getJSONObject("data");
+                        String authorizationUrl = data.getString("authorization_url");
+                        String access_code = data.getString("access_code");
+
+                        // Start the PaymentWebViewActivity and pass the authorization URL
+                        //Intent intent = new Intent(ProcessOrder.this, PaymentWebView.class);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(authorizationUrl));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        //startActivity(intent);
+
+                        intent.putExtra("access_code", access_code);
+                        intent.putExtra("AUTHORIZATION_URL", authorizationUrl);
+                        startActivity(intent);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    runOnUiThread(() -> Toast.makeText(AddBalance.this, "Payment initialization failed", Toast.LENGTH_SHORT).show());
+                }
+            }
+        });
+
+
+
+
+
+    }
 
 }

@@ -45,7 +45,7 @@ public class WalletFragment extends Fragment {
         tvBalance = view.findViewById(R.id.balance);
         addBalance = view.findViewById(R.id.add_balance);
         backBtn = view.findViewById(R.id.back_btn);
-        balanceUpdater = new BalanceUpdater(getContext(), null);
+        balanceUpdater = new BalanceUpdater(getContext(), null, this.getActivity());
     }
 
     private void getBalance() {

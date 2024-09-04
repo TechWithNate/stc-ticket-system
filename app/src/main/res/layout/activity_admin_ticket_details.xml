@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.TicketDetails">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+    tools:context=".activities.AdminTicketDetails">
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,36 +169,32 @@
         android:id="@+id/div2"
         android:layout_marginTop="7dp"/>
 
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="300dp"-->
-<!--        app:cardElevation="10dp"-->
-<!--        app:cardCornerRadius="15dp"-->
-<!--        android:id="@+id/code_card"-->
-<!--        app:strokeWidth="0dp"-->
-<!--        app:cardBackgroundColor="@color/white"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_below="@+id/div2"-->
-<!--        android:layout_marginTop="40dp">-->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="15dp"
+        android:id="@+id/code_card"
+        app:strokeWidth="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/div2"
+        android:layout_marginTop="40dp">
 
         <ImageView
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/div2"
-            android:layout_marginTop="40dp"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:scaleType="fitCenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
             android:id="@+id/qr_code"/>
 
-<!--    </com.google.android.material.card.MaterialCardView>-->
+    </com.google.android.material.card.MaterialCardView>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:background="#8A8A8A"
-        android:layout_below="@+id/qr_code"
+        android:layout_below="@+id/code_card"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:id="@+id/div3"
@@ -303,7 +294,6 @@
         android:text="Cancel Ticket"
         android:id="@+id/cancel"/>
 
-    </RelativeLayout>
 
 
-</ScrollView>
+</RelativeLayout>
